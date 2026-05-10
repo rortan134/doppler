@@ -10,19 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as McpRouteImport } from './routes/mcp'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoMcpTodosRouteImport } from './routes/demo/mcp-todos'
-import { Route as DemoApiMcpTodosRouteImport } from './routes/demo/api.mcp-todos'
 
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -30,59 +22,31 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoMcpTodosRoute = DemoMcpTodosRouteImport.update({
-  id: '/demo/mcp-todos',
-  path: '/demo/mcp-todos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiMcpTodosRoute = DemoApiMcpTodosRouteImport.update({
-  id: '/demo/api/mcp-todos',
-  path: '/demo/api/mcp-todos',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/mcp': typeof McpRoute
-  '/demo/mcp-todos': typeof DemoMcpTodosRoute
-  '/demo/api/mcp-todos': typeof DemoApiMcpTodosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/mcp': typeof McpRoute
-  '/demo/mcp-todos': typeof DemoMcpTodosRoute
-  '/demo/api/mcp-todos': typeof DemoApiMcpTodosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/mcp': typeof McpRoute
-  '/demo/mcp-todos': typeof DemoMcpTodosRoute
-  '/demo/api/mcp-todos': typeof DemoApiMcpTodosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/mcp' | '/demo/mcp-todos' | '/demo/api/mcp-todos'
+  fullPaths: '/' | '/mcp'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/mcp' | '/demo/mcp-todos' | '/demo/api/mcp-todos'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/mcp'
-    | '/demo/mcp-todos'
-    | '/demo/api/mcp-todos'
+  to: '/' | '/mcp'
+  id: '__root__' | '/' | '/mcp'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   McpRoute: typeof McpRoute
-  DemoMcpTodosRoute: typeof DemoMcpTodosRoute
-  DemoApiMcpTodosRoute: typeof DemoApiMcpTodosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -94,13 +58,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -108,29 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/mcp-todos': {
-      id: '/demo/mcp-todos'
-      path: '/demo/mcp-todos'
-      fullPath: '/demo/mcp-todos'
-      preLoaderRoute: typeof DemoMcpTodosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/api/mcp-todos': {
-      id: '/demo/api/mcp-todos'
-      path: '/demo/api/mcp-todos'
-      fullPath: '/demo/api/mcp-todos'
-      preLoaderRoute: typeof DemoApiMcpTodosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   McpRoute: McpRoute,
-  DemoMcpTodosRoute: DemoMcpTodosRoute,
-  DemoApiMcpTodosRoute: DemoApiMcpTodosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

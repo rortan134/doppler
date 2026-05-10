@@ -1,4 +1,6 @@
-Welcome to your new TanStack Start app!
+# Whisper
+
+Stateless end-to-end encrypted messaging application through URLs with agentic access (MCP).
 
 # Getting Started
 
