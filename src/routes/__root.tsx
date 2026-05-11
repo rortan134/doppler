@@ -41,7 +41,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 />
                 <HeadContent />
             </head>
-            <body className="font-sans antialiased [overflow-wrap:anywhere]">
+            <body className="wrap-anywhere font-sans antialiased">
                 <Header />
                 {children}
                 <Footer />
