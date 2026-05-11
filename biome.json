@@ -38,6 +38,9 @@
     },
     "linter": {
         "rules": {
+            "style": {
+                "noNestedTernary": "off"
+            },
             "performance": {
                 "noNamespaceImport": "off",
                 "noImgElement": "off"
