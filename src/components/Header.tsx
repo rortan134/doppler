@@ -1,12 +1,7 @@
 export default function Header() {
     return (
-        <header className="px-4 py-20 mx-auto max-w-xl">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-                numquam cumque quia enim atque. Aspernatur consequuntur,
-                voluptas et provident facilis iste quidem facere laboriosam
-                explicabo distinctio exercitationem, sequi quos odio!
-            </p>
+        <header className="mx-auto max-w-xl px-4 py-6">
+            <h1 className="font-semibold text-xl tracking-tight">Doppler</h1>
         </header>
     );
 }

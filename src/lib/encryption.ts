@@ -1,3 +1,7 @@
+/**
+ * From https://github.com/excalidraw/excalidraw/blob/master/packages/excalidraw/data/encryption.ts
+ * @see https://plus.excalidraw.com/blog/end-to-end-encryption
+ */
 import { blobToArrayBuffer } from "./blob";
 
 export const ENCRYPTION_KEY_BITS = 128;

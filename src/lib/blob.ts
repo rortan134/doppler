@@ -1,6 +1,3 @@
-export const blobToFile = (blob: Blob, fileName: string) =>
-    new File([blob], fileName, { lastModified: Date.now() });
-
 export const blobToArrayBuffer = (blob: Blob): Promise<ArrayBuffer> => {
     if ("arrayBuffer" in blob) {
         return blob.arrayBuffer();

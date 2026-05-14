@@ -25,7 +25,7 @@ export const Route = createRootRoute({
                 name: "viewport",
             },
             {
-                title: "Whisper",
+                title: "Doppler",
             },
         ],
     }),
